@@ -31,9 +31,42 @@ python main.py
 > lin1000/opengov:python3.6 {username}/{repository}:{tag}
 
 ```
-#tag為Python3.6為辨識該Container使用程式語言版本的好方法
-docker tag textanalysis-andreyt lin1000/opengov:python3.6
-docker push lin1000/opengov:python3.6
+#(alternative)tag為Python3.6為辨識該Container使用程式語言版本的好方法
+docker tag textanalysis-andreyt lin1000/opengov:latest
+docker push lin1000/opengov:latest
+```
+
+### define docker-compose.yml
+```
+version: "3"
+services:
+  web:
+    # replace username/repo:tag with your name and image details
+    image: lin1000/opengov:latest
+    deploy:
+      replicas: 5
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+    networks:
+      - webnet
+networks:
+  webnet:
+
+``` 
+
+
+### deploy container in local docker swarm
+```
+docker swarm init
+docker stack deploy -c docker-compose.yml textanalysis-andreyt-swarm
+(for check the service aliveness) docker stack deploy ps textanalysis-andreyt-swarm
+(for remove the service) docker stack deploy rm textanalysis-andreyt-swarm 
 ```
 
 ## Concept to be intrdouced
