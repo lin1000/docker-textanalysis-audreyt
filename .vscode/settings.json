@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/lin1000/anaconda3/bin/python"
+    "python.pythonPath": "/Users/lin1000/anaconda3/bin/python",
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

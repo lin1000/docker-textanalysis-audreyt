@@ -69,12 +69,14 @@ docker stack deploy -c docker-compose.yml textanalysis-andreyt-swarm
 (for remove the service) docker stack deploy rm textanalysis-andreyt-swarm 
 ```
 
-## Concept to be intrdouced
-- [ ] Prepare a template for Single Page Application
-- [ ] Data Source : [唐鳯逐字稿]
+## Features
+- [x] Prepare a template for Single Page Application
+- [x] Add Aapche Tika support for parsing hetergenous documents and files
+- [ ] Collection Data Source : [唐鳯逐字稿] [Gov] [Open Data]
+
 
 ## References
 1. [docker-misconceptions](https://valdhaus.co/writings/docker-misconceptions/)
 
-# Link Referenes
-2. [唐鳯逐字稿]: https://github.com/audreyt/archive.t
+
+[唐鳯逐字稿]: https://github.com/audreyt/archive.tw
